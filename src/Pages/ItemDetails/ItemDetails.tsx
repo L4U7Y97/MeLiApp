@@ -1,14 +1,15 @@
 import React from 'react'
-import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom';
+import { ItemWithDetails } from '../../domain/Item';
+import { makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
 
-export async function loader({ params }: LoaderFunctionArgs) {
-    const item:any = //await getItem(params.itemId);
-    {}
+export const loader = makeDeferredLoader(({ params }) => {
+    const item: ItemWithDetails = //await getItem(params.itemId);
+    {} as ItemWithDetails
     return { item };
-  }
+  })
 
 export default function ItemDetails() {
-    //const { item } = useLoaderData();
+    const { item } = useLoaderData();
     return (
         <div>ItemsDetails</div>
     )

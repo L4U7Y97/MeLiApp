@@ -9,7 +9,7 @@ export interface Item {
     free_shipping: boolean;
 }
 
-export interface ItemDetails extends Item {
+export interface ItemWithDetails extends Item {
     sold_quantity: number;
     description: string;
 }
