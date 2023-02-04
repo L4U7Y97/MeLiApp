@@ -1,0 +1,15 @@
+$searchbarHeight: 10vh;
+
+.Searchbar {
+  top: 0;
+  text-align: center;
+  background-color: yellow;
+  height: $searchbarHeight;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  color: yellow;
+}

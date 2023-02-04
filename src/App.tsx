@@ -4,29 +4,30 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Searchbar from './Components/Searchbar';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Searchbar />,
     children: [
       {
-    path: "/items",
-    element: <div>items</div>,
-  },
-  {
-    path: "/items/:id",
-    element: <div>details</div>,
-  },
+        path: "/items",
+        element: <div>items</div>,
+      },
+      {
+        path: "/items/:id",
+        element: <div>details</div>,
+      },
     ]
   },
-  
+
 ]);
 
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
   );
 }
