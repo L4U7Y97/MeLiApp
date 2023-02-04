@@ -4,8 +4,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Searchbar from './Components/Searchbar/Searchbar';
-import ItemsList from './Pages/ItemsList/ItemsList';
+import Searchbar from './Pages/Searchbar/Searchbar';
+import ItemsList, { loader as ItemsListLoader } from './Pages/ItemsList/ItemsList';
+import ItemDetails, { loader as ItemDetailsLoader } from './Pages/ItemDetails/ItemDetails';
 
 const router = createBrowserRouter([
   {
@@ -15,10 +16,12 @@ const router = createBrowserRouter([
       {
         path: "/items",
         element: <ItemsList />,
+        loader: ItemsListLoader,
       },
       {
-        path: "/items/:id",
-        element: <div>details</div>,
+        path: "/items/:itemId",
+        element: <ItemDetails />,
+        loader: ItemDetailsLoader,
       },
     ]
   },
