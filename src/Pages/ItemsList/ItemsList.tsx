@@ -1,20 +1,23 @@
 import React from 'react'
-import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom';
 import { Item } from '../../domain/Item';
-import { makeDeferredLoader } from '../../utils/routerUtils';
+import { Await, makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
+import getItems from './getItems';
 
 export const loader = makeDeferredLoader(({ request }) => {
     const url = new URL(request.url);
-    const searchArg =  url.searchParams.get("search");
-    const items: Item[] = //await getItems(searchArg);
-    []
+    const searchArg = url.searchParams.get("search") || '';
+    const items = getItems(searchArg);
     return { items };
-  }
+}
 )
 export default function ItemsList() {
-    //const { items } = useLoaderData();
+    const data = useLoaderData<typeof loader>();
     return (
-        <div>ItemsList</div>
+        <React.Suspense fallback={<></>}>
+            <Await resolve={data.items}>
+                {items => <>{items.results.map((item) => <div>{item.title}</div>)}</>}
+            </Await>
+        </React.Suspense>
     )
 }
 

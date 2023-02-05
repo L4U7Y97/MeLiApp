@@ -9,7 +9,7 @@ export const loader = makeDeferredLoader(({ params }) => {
   })
 
 export default function ItemDetails() {
-    const { item } = useLoaderData();
+    //const { item } = useLoaderData();
     return (
         <div>ItemsDetails</div>
     )
