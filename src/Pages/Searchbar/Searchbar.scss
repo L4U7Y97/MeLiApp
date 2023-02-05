@@ -15,6 +15,7 @@ $containerMaxWidth: 960px;
 
 .Container {
   width: 100%;
+  min-height: calc(100vh - $searchbarHeight);
   text-align: center;
   max-width: $containerMaxWidth;
   display: flex;
