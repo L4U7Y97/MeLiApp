@@ -20,7 +20,7 @@ function Searchbar() {
                     </Form>
                 </div>
             </div>
-            <div className='Container'>
+            <div className='Container OutletContainer'>
                 <Outlet />
             </div>
         </>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from '../../Components/Card/Card';
 import SuspenseLoader from '../../Components/SuspensePageLoader/SuspensePageLoader';
 import { Item } from '../../domain/Item';
 import { Await, makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
@@ -16,7 +17,7 @@ export default function ItemsList() {
     return (
         <SuspenseLoader>
             <Await resolve={data.items}>
-                {items => <>{items.results.map((item) => <div>{item.title}</div>)}</>}
+                {items => <>{items.results.map((item) => <Card>{item.title}</Card>)}</>}
             </Await>
         </SuspenseLoader>
     )

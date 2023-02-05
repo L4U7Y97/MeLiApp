@@ -7,7 +7,7 @@ interface SuspensePageLoaderProps extends Omit<React.SuspenseProps, 'fallback'>{
 
 function SuspensePageLoader({loaderProps, ...props}: SuspensePageLoaderProps) {
   return (
-    <React.Suspense fallback={<div><Circles {...loaderProps}/></div>} {...props}/>
+    <React.Suspense fallback={<Circles color='blue' {...loaderProps}/>} {...props}/>
   )
 }
 

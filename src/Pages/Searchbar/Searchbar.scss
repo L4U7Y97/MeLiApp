@@ -13,9 +13,12 @@ $containerMaxWidth: 960px;
   position: sticky;
 }
 
+.OutletContainer {
+  min-height: calc(100vh - $searchbarHeight);
+}
+
 .Container {
   width: 100%;
-  min-height: calc(100vh - $searchbarHeight);
   text-align: center;
   max-width: $containerMaxWidth;
   display: flex;
