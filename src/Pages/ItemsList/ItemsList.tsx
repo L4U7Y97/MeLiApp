@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from '../../Components/Card/Card';
 import SuspenseLoader from '../../Components/SuspensePageLoader/SuspensePageLoader';
-import { Item } from '../../domain/Item';
 import { Await, makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
 import getItems from './getItems';
+import './ItemsList.scss';
 
 export const loader = makeDeferredLoader(({ request }) => {
     const url = new URL(request.url);
@@ -17,7 +17,9 @@ export default function ItemsList() {
     return (
         <SuspenseLoader>
             <Await resolve={data.items}>
-                {items => <>{items.results.map((item) => <Card>{item.title}</Card>)}</>}
+                {items => <table className='Table'>
+                    {items.results.map((item) => <tr><Card>{item.title}</Card></tr>)}
+                </table>}
             </Await>
         </SuspenseLoader>
     )
