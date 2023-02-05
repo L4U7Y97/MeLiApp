@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Outlet, useNavigate } from 'react-router-dom'
-import '../Styles/Searchbar.scss'
+import './Searchbar.scss'
 import { BiSearchAlt2 } from 'react-icons/bi'
 function Searchbar() {
     const navigate = useNavigate()
@@ -13,7 +13,7 @@ function Searchbar() {
             <div className='Searchbar'>
                 <div className='Container'>
                     <Form method='get' onSubmit={onSubmit} className="Form">
-                        <input name="search" type="text" className='Input' />
+                        <input name="search" type="text" className='Input' placeholder='Nunca dejes de buscar'/>
                         <button className='Button' type="submit">
                             <BiSearchAlt2 className='SearchIcon' preserveAspectRatio="xMinYMin" />
                         </button>

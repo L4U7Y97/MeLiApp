@@ -4,7 +4,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Searchbar from './Components/Searchbar';
+import Searchbar from './Components/Searchbar/Searchbar';
+import ItemsList from './Pages/ItemsList/ItemsList';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/items",
-        element: <div>items</div>,
+        element: <ItemsList />,
       },
       {
         path: "/items/:id",
