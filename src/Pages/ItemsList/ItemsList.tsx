@@ -5,6 +5,7 @@ import { Item } from '../../domain/Item';
 import { Await, makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
 import getItems from './getItems';
 import './ItemsList.scss';
+import { TbTruckDelivery } from 'react-icons/tb'
 
 export const loader = makeDeferredLoader(({ request }) => {
     const url = new URL(request.url);
@@ -28,9 +29,12 @@ export default function ItemsList() {
 
 const ItemCard: FC<{ item: Item }> = ({ item }) => {
     return <Card>
-        <img src={item.picture} className='ItemImage'/>
+        <img src={item.picture} className='ItemImage' />
         <div className='ItemTitleContainer'>
-            <span className='ItemPrice'>{`${item.price.currency} ${item.price.amount}`}<span>{item.free_shipping}</span></span>
+            <span className='ItemPrice'>
+                {`${item.price.currency} ${item.price.amount}`}
+                {item.free_shipping && <TbTruckDelivery className='ShippingIcon'/>}
+            </span>
             <span>{item.title}</span>
         </div>
         <span className='ItemCondition'>{item.condition}</span>

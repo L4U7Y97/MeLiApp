@@ -4,6 +4,8 @@
 
 .ItemImage {
   margin-right: 10px;
+  height: 90px;
+  width: 90px;
 }
 
 .ItemTitleContainer {
@@ -14,7 +16,14 @@
 }
 
 .ItemPrice {
+  display: flex;
   font-size: x-large;
+  align-items: center;
+}
+
+.ShippingIcon {
+  color: green;
+  margin-left: 5px;
 }
 
 .ItemCondition {
