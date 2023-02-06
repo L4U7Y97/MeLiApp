@@ -1,9 +1,15 @@
+import { Author } from "../../domain/Author";
 import { Item } from "../../domain/Item"
-import { MeLiResponse } from "../../domain/MeLiResponse"
 import { fetchJson } from "../../utils/fetchUtils"
 
+interface ItemsResponse {
+  author: Author;
+  categories: string[];
+  items: Item[];
+}
+
 function getItems(query: string) {
-  return fetchJson<MeLiResponse<Item[]>>(`https://api.mercadolibre.com/sites/MLA/search?${new URLSearchParams({
+  return fetchJson<ItemsResponse>(`localhost:5000/api/items?${new URLSearchParams({
     q: query,
   })}`)
 }

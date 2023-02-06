@@ -18,7 +18,7 @@ export default function ItemsList() {
         <SuspenseLoader>
             <Await resolve={data.items}>
                 {items => <table className='Table'>
-                    {items.results.map((item) => <tr><Card>{item.title}</Card></tr>)}
+                    {items.items.map((item) => <tr><Card>{item.title}</Card></tr>)}
                 </table>}
             </Await>
         </SuspenseLoader>
