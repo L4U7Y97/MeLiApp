@@ -1,3 +1,5 @@
-export function fetchJson<T>(input: RequestInfo | URL, init?: RequestInit) {
-    return fetch(input, init).then(response => response.json()).then(json => json as T)
+export async function fetchJson<T>(input: RequestInfo | URL, init?: RequestInit) {
+    const response = await fetch(input, init);
+    const json = await response.json();
+    return json as T;
 }

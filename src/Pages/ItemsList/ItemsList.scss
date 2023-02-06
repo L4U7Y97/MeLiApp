@@ -2,3 +2,22 @@
   width: 100%;
 }
 
+.ItemImage {
+  margin-right: 10px;
+}
+
+.ItemTitleContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.ItemPrice {
+  font-size: x-large;
+}
+
+.ItemCondition {
+  text-align: right;
+}
+

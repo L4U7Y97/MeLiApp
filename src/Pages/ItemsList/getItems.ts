@@ -9,7 +9,7 @@ interface ItemsResponse {
 }
 
 function getItems(query: string) {
-  return fetchJson<ItemsResponse>(`localhost:5000/api/items?${new URLSearchParams({
+  return fetchJson<ItemsResponse>(`http://localhost:5000/api/items?${new URLSearchParams({
     q: query,
   })}`)
 }

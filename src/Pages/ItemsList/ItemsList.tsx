@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Card from '../../Components/Card/Card';
 import SuspenseLoader from '../../Components/SuspensePageLoader/SuspensePageLoader';
+import { Item } from '../../domain/Item';
 import { Await, makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
 import getItems from './getItems';
 import './ItemsList.scss';
@@ -18,10 +19,21 @@ export default function ItemsList() {
         <SuspenseLoader>
             <Await resolve={data.items}>
                 {items => <table className='Table'>
-                    {items.items.map((item) => <tr><Card>{item.title}</Card></tr>)}
+                    {items.items.map((item) => <tr><ItemCard item={item} /></tr>)}
                 </table>}
             </Await>
         </SuspenseLoader>
     )
+}
+
+const ItemCard: FC<{ item: Item }> = ({ item }) => {
+    return <Card>
+        <img src={item.picture} className='ItemImage'/>
+        <div className='ItemTitleContainer'>
+            <span className='ItemPrice'>{`${item.price.currency} ${item.price.amount}`}<span>{item.free_shipping}</span></span>
+            <span>{item.title}</span>
+        </div>
+        <span className='ItemCondition'>{item.condition}</span>
+    </Card>
 }
 
