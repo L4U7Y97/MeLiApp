@@ -4,7 +4,7 @@ import SuspenseLoader from '../../Components/SuspensePageLoader/SuspensePageLoad
 import { Item } from '../../domain/Item';
 import { Await, makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
 import getItems from './getItems';
-import './ItemsList.scss';
+import './ItemsList.sass';
 import { TbTruckDelivery } from 'react-icons/tb'
 import Tooltip from '../../Components/Tooltip/Tooltip';
 import { useNavigate } from 'react-router-dom';

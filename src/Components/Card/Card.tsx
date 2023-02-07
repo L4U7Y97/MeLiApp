@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react'
-import './Card.scss'
+import './Card.sass'
 function Card({className = '', ...props}: ComponentProps<'div'>) {
     return (
         <div className={`Card ${className}`} {...props} />

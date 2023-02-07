@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import './Tooltip.scss'
+import './Tooltip.sass'
 
 interface TooltipProps extends PropsWithChildren {
     text: string

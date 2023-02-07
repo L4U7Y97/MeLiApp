@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Outlet, useNavigate } from 'react-router-dom'
-import './Searchbar.scss'
+import './Searchbar.sass'
 import { BiSearchAlt2 } from 'react-icons/bi'
 function Searchbar() {
     const navigate = useNavigate()

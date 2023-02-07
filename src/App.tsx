@@ -1,5 +1,5 @@
 import React from 'react';
-import './Styles/App.scss';
+import './Styles/App.sass';
 import {
   createBrowserRouter,
   RouterProvider,
