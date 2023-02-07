@@ -2,7 +2,7 @@ import React, { FC, useCallback } from 'react'
 import Card from '../../Components/Card/Card';
 import SuspenseLoader from '../../Components/SuspensePageLoader/SuspensePageLoader';
 import { Item } from '../../domain/Item';
-import { Await, makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
+import { makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
 import getItems from './getItems';
 import './ItemsList.sass';
 import { TbTruckDelivery } from 'react-icons/tb'
