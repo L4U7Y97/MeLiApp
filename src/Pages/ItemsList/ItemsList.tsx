@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 import Card from '../../Components/Card/Card';
 import SuspenseLoader from '../../Components/SuspensePageLoader/SuspensePageLoader';
 import { Item } from '../../domain/Item';
@@ -7,6 +7,7 @@ import getItems from './getItems';
 import './ItemsList.scss';
 import { TbTruckDelivery } from 'react-icons/tb'
 import Tooltip from '../../Components/Tooltip/Tooltip';
+import { useNavigate } from 'react-router-dom';
 
 export const loader = makeDeferredLoader(({ request }) => {
     const url = new URL(request.url);
@@ -29,7 +30,10 @@ export default function ItemsList() {
 }
 
 const ItemCard: FC<{ item: Item }> = ({ item }) => {
-    return <Card>
+    const navigate = useNavigate();
+    const onClick = useCallback(() => navigate(`/items/${item.id}`), [navigate, item.id]) 
+
+    return <Card onClick={onClick} className="ItemCard">
         <img src={item.picture} className='ItemImage' />
         <div className='ItemTitleContainer'>
             <span className='ItemPrice'>
