@@ -1,17 +1,19 @@
 import React from 'react'
-import { ItemWithDetails } from '../../domain/Item';
+import SuspenseLoader from '../../Components/SuspensePageLoader/SuspensePageLoader';
 import { makeDeferredLoader, useLoaderData } from '../../utils/routerUtils';
+import getItem from './getItem';
 
 export const loader = makeDeferredLoader(({ params }) => {
-    const item: ItemWithDetails = //await getItem(params.itemId);
-    {} as ItemWithDetails
+    const item = getItem(params.itemId || '');
     return { item };
   })
 
 export default function ItemDetails() {
-    //const { item } = useLoaderData();
+    const { item } = useLoaderData<typeof loader>();
     return (
-        <div>ItemsDetails</div>
+        <SuspenseLoader resolve={item}>
+            {item => <div>{item.item.title}</div>}
+        </SuspenseLoader>
     )
 }
 

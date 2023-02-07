@@ -1,13 +1,18 @@
 import React from 'react'
 import { Circles } from 'react-loader-spinner'
+import { Await, AwaitProps } from '../../utils/routerUtils';
 
-interface SuspensePageLoaderProps extends Omit<React.SuspenseProps, 'fallback'>{
+interface SuspensePageLoaderProps<T> extends Omit<React.SuspenseProps, 'fallback' | 'children'>, AwaitProps<T>{
     loaderProps?: React.ComponentProps<typeof Circles>;
 }
 
-function SuspensePageLoader({loaderProps, ...props}: SuspensePageLoaderProps) {
+function SuspensePageLoader<T>({loaderProps, children, resolve, errorElement, ...props}: SuspensePageLoaderProps<T>) {
   return (
-    <React.Suspense fallback={<Circles color='blue' {...loaderProps}/>} {...props}/>
+    <React.Suspense fallback={<Circles color='blue' {...loaderProps}/>} {...props}>
+      <Await resolve={resolve} errorElement={errorElement}>
+        {children}
+      </Await>
+    </React.Suspense>
   )
 }
 
