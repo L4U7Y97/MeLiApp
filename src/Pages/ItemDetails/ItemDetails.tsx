@@ -8,22 +8,25 @@ import './ItemDetails.sass'
 export const loader = makeDeferredLoader(({ params }) => {
     const item = getItem(params.itemId || '');
     return { item };
-  })
+})
 
 export default function ItemDetails() {
     const { item } = useLoaderData<typeof loader>();
     return (
         <SuspenseLoader resolve={item}>
-            {({item}) => <Card>
-                <img src={item.picture} className='ItemImage' />
-        <div className='ItemContainer'>
-            <span className='ItemPrice'>
-                {`${item.price.currency} ${item.price.amount}`}
-            </span>
-            <span>{item.title}</span>
-        </div>
-        <span className='ItemDescriptionTitle'>{item.condition}</span>
-        </Card>}
+            {({ item }) => <Card className='ItemDetailsCard'>
+                <div className='ItemDetailsContainer'>
+                    <img src={item.picture} className='ItemDetailsImage' />
+                    <span className='GreyText'>{item.condition} - {item.sold_quantity} vendidos</span>
+                    <span>{item.title}</span>
+                    <span className='PriceText'>
+                        {`${item.price.currency} ${item.price.amount}`}<span className='DecimalsText'>{item.price.decimals}</span>
+                    </span>
+                    <button className='BuyButton'>Comprar</button>
+                </div>
+                <span>Descripción del producto</span>
+                <span className='GreyText'>{item.description}</span>
+            </Card>}
         </SuspenseLoader>
     )
 }

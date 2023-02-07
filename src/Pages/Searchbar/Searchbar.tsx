@@ -12,9 +12,9 @@ function Searchbar() {
         <>
             <div className='Searchbar'>
                 <div className='Container'>
-                    <Form method='get' onSubmit={onSubmit} className="Form">
-                        <input name="search" type="text" className='Input' placeholder='Nunca dejes de buscar'/>
-                        <button className='Button' type="submit">
+                    <Form method='get' onSubmit={onSubmit} className="SearchForm">
+                        <input name="search" type="text" className='SearchInput' placeholder='Nunca dejes de buscar'/>
+                        <button className='SearchButton' type="submit">
                             <BiSearchAlt2 className='SearchIcon' preserveAspectRatio="xMinYMin" />
                         </button>
                     </Form>

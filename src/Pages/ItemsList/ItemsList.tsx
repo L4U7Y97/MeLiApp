@@ -34,7 +34,7 @@ const ItemCard: FC<{ item: Item }> = ({ item }) => {
     return <Card onClick={onClick} className="ItemCard">
         <img src={item.picture} className='ItemImage' />
         <div className='ItemTitleContainer'>
-            <span className='ItemPrice'>
+            <span className='PriceText ItemPrice'>
                 {`${item.price.currency} ${item.price.amount}`}
                 {item.free_shipping && <Tooltip text='Free Shipping'><TbTruckDelivery className='ShippingIcon' /></Tooltip>}
             </span>
