@@ -15,8 +15,12 @@ export default function ItemDetails() {
     return (
         <SuspenseLoader resolve={item}>
             {({ item }) => <Card className='ItemDetailsCard'>
-                <div className='ItemDetailsContainer'>
+                <div className='ItemDetailsImageContainer'>
                     <img src={item.picture} className='ItemDetailsImage' />
+                    <span>Descripción del producto</span>
+                    <span className='GreyText'>{item.description}</span>
+                </div>
+                <div className='VerticalFlex ItemDetailsPriceContainer'>
                     <span className='GreyText'>{item.condition} - {item.sold_quantity} vendidos</span>
                     <span>{item.title}</span>
                     <span className='PriceText'>
@@ -24,8 +28,6 @@ export default function ItemDetails() {
                     </span>
                     <button className='BuyButton'>Comprar</button>
                 </div>
-                <span>Descripción del producto</span>
-                <span className='GreyText'>{item.description}</span>
             </Card>}
         </SuspenseLoader>
     )

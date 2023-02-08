@@ -1,13 +1,13 @@
+@import ../../Styles/Displays
+
 $searchbarHeight: 50px
 $containerMaxWidth: 960px
 .Searchbar
+  @include VerticalFullFlex
   top: 0
   text-align: center
   background-color: yellow
   height: $searchbarHeight
-  width: 100%
-  display: flex
-  flex-direction: column
   align-items: center
   justify-content: center
   position: sticky
@@ -16,16 +16,13 @@ $containerMaxWidth: 960px
   min-height: calc(100vh - $searchbarHeight)
 
 .Container
-  width: 100%
+  @include VerticalFullFlex
   text-align: center
   max-width: $containerMaxWidth
-  display: flex
-  flex-direction: column
   align-items: center
 
 .SearchForm
-  width: 100%
-  display: flex
+  @include HorizontalFullFlex
 
 .SearchInput
   width: 100%

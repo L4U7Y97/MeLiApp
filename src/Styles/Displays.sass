@@ -1,0 +1,12 @@
+@mixin VerticalFlex
+    display: flex
+    flex-direction: column
+@mixin HorizontalFlex
+    display: flex
+@mixin VerticalFullFlex
+    @include VerticalFlex
+    width: 100%
+@mixin HorizontalFullFlex
+    @include HorizontalFlex
+    width: 100%
+

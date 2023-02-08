@@ -1,3 +1,4 @@
+@import ../../Styles/Displays
 .Table
   width: 100%
   .ItemCard
@@ -7,10 +8,8 @@
       height: 90px
       width: 90px
     .ItemTitleContainer
-      display: flex
-      flex-direction: column
+      @include VerticalFullFlex
       text-align: left
-      width: 100%
       .ItemPrice
         display: flex
         align-items: center
