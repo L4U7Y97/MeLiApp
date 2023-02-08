@@ -8,6 +8,7 @@ import './ItemsList.sass';
 import { TbTruckDelivery } from 'react-icons/tb'
 import Tooltip from '../../Components/Tooltip/Tooltip';
 import { useNavigate } from 'react-router-dom';
+import Breadcrumb from '../../Components/Breadcrumb/Breadcrumb';
 
 export const loader = makeDeferredLoader(({ request }) => {
     const url = new URL(request.url);
@@ -20,9 +21,12 @@ export default function ItemsList() {
     const data = useLoaderData<typeof loader>();
     return (
         <SuspenseLoader resolve={data.items}>
-            {items => <table className='Table'>
-                {items.items.map((item) => <tr><ItemCard item={item} /></tr>)}
-            </table>}
+            {items => <>
+                <Breadcrumb paths={items.categories} />
+                <table className='Table'>
+                    {items.items.map((item) => <tr><ItemCard item={item} /></tr>)}
+                </table>
+            </>}
         </SuspenseLoader>
     )
 }
@@ -34,8 +38,8 @@ const ItemCard: FC<{ item: Item }> = ({ item }) => {
     return <Card onClick={onClick} className="ItemCard">
         <img src={item.picture} className='ItemImage' />
         <div className='ItemTitleContainer'>
-            
-            <span className='PriceText ItemPrice'>
+
+            <span className='BigText ItemPrice'>
                 {`${item.price.currency} ${item.price.amount}`}
                 {item.free_shipping && <Tooltip text='Free Shipping'><TbTruckDelivery className='ShippingIcon' /></Tooltip>}
             </span>

@@ -1,19 +1,28 @@
 @import ../../Styles/Displays
 .ItemDetailsCard
   padding: 25px
-.ItemDetailsImage 
-  width: 100%
-.ItemDetailsPriceContainer
-  padding-left: 15px
-  @include VerticalFlex
-.ItemDetailsImageContainer
-  max-width: 65%
-  text-align: left
-  @include VerticalFlex
-.ItemDetailsDescriptionTitle
-  margin: 20px 0px
-.BuyButton
-  background-color: royalblue
-  border-radius: 5px
+  .ItemDetailsImage 
+    width: 100%
+  .ItemDetailsPriceContainer
+    padding-left: 15px
+    text-align: left
+    @include VerticalFlex
+    .PriceText
+      @include HorizontalFlex
+      .DecimalText
+        align-self: flex-start
+        margin-top: 7px
+    .BuyButton
+      background-color: royalblue
+      border-radius: 5px
+      border-width: 0px
+      margin-top: 20px
+      padding: 10px
+  .ItemDetailsImageContainer
+    max-width: 65%
+    text-align: left
+    @include VerticalFlex
+  .ItemDetailsDescriptionTitle
+    margin: 20px 0px
 
 
