@@ -17,10 +17,10 @@ export default function ItemDetails() {
             {({ item }) => <Card className='ItemDetailsCard'>
                 <div className='ItemDetailsImageContainer'>
                     <img src={item.picture} className='ItemDetailsImage' />
-                    <span>Descripción del producto</span>
+                    <span className='ItemDetailsDescriptionTitle'>Descripción del producto</span>
                     <span className='GreyText'>{item.description}</span>
                 </div>
-                <div className='VerticalFlex ItemDetailsPriceContainer'>
+                <div className='ItemDetailsPriceContainer'>
                     <span className='GreyText'>{item.condition} - {item.sold_quantity} vendidos</span>
                     <span>{item.title}</span>
                     <span className='PriceText'>
