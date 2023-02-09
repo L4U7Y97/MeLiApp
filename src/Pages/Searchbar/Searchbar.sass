@@ -1,6 +1,7 @@
 @import ../../Styles/Displays
 
 $searchbarHeight: 50px
+$searchbarVerticalPadding: 10px
 $containerMaxWidth: 960px
 .Searchbar
   @include VerticalFullFlex
@@ -11,7 +12,9 @@ $containerMaxWidth: 960px
   align-items: center
   justify-content: center
   position: sticky
-
+.MeLiIcon
+  height: $searchbarHeight - 2*$searchbarVerticalPadding
+  margin-right: 15px
 .OutletContainer
   min-height: calc(100vh - $searchbarHeight)
 
@@ -20,6 +23,7 @@ $containerMaxWidth: 960px
   text-align: center
   max-width: $containerMaxWidth
   align-items: center
+  padding: $searchbarVerticalPadding
 
 .SearchForm
   @include HorizontalFullFlex
